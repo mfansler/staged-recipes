@@ -1,0 +1,48 @@
+{% set name = "pdf-reports" %}
+{% set version = "0.3.8" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/pdf_reports-{{ version }}.tar.gz
+  sha256: 4d21d8df0aec9dbfbe833bc0775f2faede271f6c334b99aa1753d79b5e94e1e6
+
+build:
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 0
+
+requirements:
+  host:
+    - python >=3.7
+    - setuptools
+    - pip
+  run:
+    - python >=3.7
+    - pypugjs
+    - jinja2
+    - weasyprint
+    - beautifulsoup4
+    - pandas
+    - markdown
+    - backports.functools_lru_cache
+
+test:
+  imports:
+    - pdf_reports
+  commands:
+    - pip check
+  requires:
+    - pip
+
+about:
+  home: https://github.com/Edinburgh-Genome-Foundry/pdf_reports
+  summary: Create nice-looking PDF reports from HTML content.
+  license: MIT
+  license_file: PLEASE_ADD_LICENSE_FILE
+
+extra:
+  recipe-maintainers:
+    - mfansler
