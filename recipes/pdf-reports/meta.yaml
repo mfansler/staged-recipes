@@ -41,7 +41,7 @@ about:
   home: https://github.com/Edinburgh-Genome-Foundry/pdf_reports
   summary: Create nice-looking PDF reports from HTML content.
   license: MIT
-  license_file: PLEASE_ADD_LICENSE_FILE
+  license_file: LICENCE.txt
 
 extra:
   recipe-maintainers:
